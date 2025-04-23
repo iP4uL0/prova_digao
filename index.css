@@ -1,0 +1,93 @@
+/* Define o estilo base do corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define uma fonte legível */
+    background-color:aliceblue; /* Cor de fundo suave */
+    margin: 0; /* Remove margem padrão do navegador */
+    padding: 40px; /* Espaço interno ao redor do conteúdo */
+    display: flex; 
+    justify-content:left; 
+    align-items: center; 
+    min-height: 100vh; /* Garante que ocupe a altura total da tela */
+}
+
+/* Estilos para o formulário */
+#formulario {
+    background-color: #fff; /* Fundo branco para destacar do body */
+    padding: 30px 40px; /* Espaço interno confortável */
+    border-radius: 10px; /* Arredonda os cantos */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
+    width: 100%; /* Ocupar toda a largura disponível */
+    max-width: 400px; /* Limita o tamanho para não ficar muito largo */
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* Estilo do título do formulário */
+#formulario h1 {
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    font-size: 24px; /* Tamanho da fonte do título */
+    color: #333; /* Cor escura suave */
+}
+
+/* Estilo das etiquetas de campo */
+#formulario label {
+    margin-bottom: 5px; /* Espaço abaixo do label */
+    color: #555; /* Tom acinzentado para suavidade */
+    font-weight: bold; /* Negrito para dar destaque */
+}
+
+/* Estilo dos campos de texto */
+#formulario input[type="text"] {
+    margin-bottom: 15px; /* Espaço entre os campos */
+    padding: 10px; /* Espaço interno no campo */
+    border: 1px solid #ccc; 
+    border-radius: 6px; /* Bordas levemente arredondadas */
+    font-size: 16px; /* Tamanho de fonte confortável */
+    outline: none; 
+    transition: border-color 0.3s ease; /* Transição suave para mudança de cor na borda */
+}
+
+/* Estilo quando o campo está em foco */
+#formulario input[type="text"]:focus {
+    border-color: #007BFF; /* Borda azul quando o campo está ativo */
+}
+
+#formulario input[type="date"] {
+    margin-bottom: 15px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    font-size: 16px; 
+    outline: none; 
+    transition: border-color 0.3s ease; /* Transição suave para mudança de cor na borda */
+}
+
+#formulario input[type="date"]:focus {
+    border-color: #007BFF; /* Borda azul quando o campo está ativo */
+}
+
+
+#formulario textarea {
+    margin-bottom: 15px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    font-size: 16px; 
+    outline: none; 
+    transition: border-color 0.3s ease; /* Transição suave para mudança de cor na borda */
+    resize: none;
+}
+
+#formulario textarea:focus {
+    border-color: #007BFF; /* Borda azul quando o campo está ativo */
+}
+
+#livroadicionados{
+    background-color: #fff; /* Fundo branco para destacar do body */
+    padding: 30px 40px; /* Espaço interno confortável */
+    border-radius: 10px; /* Arredonda os cantos */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
+    width: 100%; /* Ocupar toda a largura disponível */
+    max-width: 400px; /* Limita o tamanho para não ficar muito largo */
+    display: flex; 
+}
