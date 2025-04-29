@@ -2,16 +2,16 @@
 body {
     font-family: Arial, sans-serif; /* Define uma fonte legível */
     background-color:aliceblue; /* Cor de fundo suave */
-    margin: 0; /* Remove margem padrão do navegador */
+     justify-content: center;
     padding: 40px; /* Espaço interno ao redor do conteúdo */
-    display: flex; 
-    justify-content:left; 
-    align-items: center; 
-    min-height: 100vh; /* Garante que ocupe a altura total da tela */
+
+     /* Garante que ocupe a altura total da tela */
 }
 
 /* Estilos para o formulário */
 #formulario {
+     
+    justify-content:center; 
     background-color: #fff; /* Fundo branco para destacar do body */
     padding: 30px 40px; /* Espaço interno confortável */
     border-radius: 10px; /* Arredonda os cantos */
@@ -20,6 +20,8 @@ body {
     max-width: 400px; /* Limita o tamanho para não ficar muito largo */
     display: flex; 
     flex-direction: column; 
+    
+
 }
 
 /* Estilo do título do formulário */
@@ -52,7 +54,7 @@ body {
     border-color: #007BFF; /* Borda azul quando o campo está ativo */
 }
 
-#formulario input[type="date"] {
+#formulario input[type="number"] {
     margin-bottom: 15px; 
     padding: 10px; 
     border: 1px solid #ccc; 
@@ -62,7 +64,7 @@ body {
     transition: border-color 0.3s ease; /* Transição suave para mudança de cor na borda */
 }
 
-#formulario input[type="date"]:focus {
+#formulario input[type="number"]:focus {
     border-color: #007BFF; /* Borda azul quando o campo está ativo */
 }
 
@@ -83,6 +85,8 @@ body {
 }
 
 #livroadicionados{
+    
+    justify-content:right; 
     background-color: #fff; /* Fundo branco para destacar do body */
     padding: 30px 40px; /* Espaço interno confortável */
     border-radius: 10px; /* Arredonda os cantos */
@@ -90,4 +94,32 @@ body {
     width: 100%; /* Ocupar toda a largura disponível */
     max-width: 400px; /* Limita o tamanho para não ficar muito largo */
     display: flex; 
+     
 }
+
+#botaosalvar{
+    margin-bottom: 15px; 
+    padding: 10px; 
+    border: 2px solid #000; 
+    border-radius: 6px; 
+    font-size: 16px; 
+    color: #fff;
+    background-color: #007BFF;
+}
+
+#livrosadicionados {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Garante tamanhos flexíveis */
+    width: 100%;
+  }
+  
+  .livro-item {
+    background: #1f7a8c; /* Azul médio */
+    padding: 20px;
+    border-radius: 16px; /* Bordas mais arredondadas */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    text-align: left;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }

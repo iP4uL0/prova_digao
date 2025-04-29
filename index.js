@@ -1,30 +1,33 @@
 
-const botao_salvar = document.querySelector("#Salvar");
+const botao_salvar = document.querySelector("#botaosalvar");
 
 botao_salvar.addEventListener("click", async function(event) {
     event.preventDefault();
 
     const autor = document.getElementById("nomeautor").value;
     const titulo = document.getElementById("nomelivro").value;
-    const sinopse = document.getElementById("sinopse").value;
-    const data = document.getElementById("datalivro").value;
+    const ano_publicacao = document.getElementById("datalivro").value;
+    const genero = document.getElementById("genero").value
+    const resumo = document.getElementById("sinopse").value;
 
-    if (!autor || !titulo || !sinopse || !data) {
-        alert("Por favor, preencha todos os campos.");
-        return;
-    }
-
-    await adicionarLivro(autor, titulo, sinopse, data);
+    await adicionarLivro(titulo, autor, ano_publicacao,genero, resumo);
 });
 
-async function adicionarLivro(autor, titulo, sinopse, data) {
+async function adicionarLivro(titulo, autor,ano_publicacao ,genero , resumo) {
     try {
-        const response = await fetch("http://localhost:3000/livros", {
+        const response = await fetch("http://192.168.1.5:3000/livros", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ autor, titulo, sinopse, data }),
+            body: JSON.stringify({ 
+                titulo: titulo, 
+                autor: autor, 
+                ano_publicacao: ano_publicacao, 
+                genero: genero,
+                resumo: resumo
+                 
+            }),
         });
 
         if (response.ok) {
@@ -34,9 +37,8 @@ async function adicionarLivro(autor, titulo, sinopse, data) {
             const data = await response.json();
             alert(data.error || "Erro ao cadastrar o livro.");
         }
-    } catch (error) {
-        console.error("Erro ao cadastrar livro:", error);
-        alert("Erro na conexão. Tente novamente.");
+    } catch  {
+               alert("Erro na conexão. Tente novamente.");
     }
 }
 // Carregar livros
@@ -49,13 +51,10 @@ async function CarregarLivros() {
     container.innerHTML = ""; // Limpa o conteúdo antes de carregar
 
     try {
-        const response = await fetch("http://localhost:3000/livros"); // Ajuste a URL se necessário
+        const response = await fetch("http://192.168.1.5:3000/livrosCad"); // Ajuste a URL se necessário
         const livros = await response.json();
 
-        if (!Array.isArray(livros) || livros.length === 0) {
-            container.innerHTML = "<p>Nenhum livro cadastrado ainda.</p>";
-            return;
-        }
+     
 
         livros.forEach((livro) => {
             const elemento = document.createElement("div");
@@ -63,15 +62,16 @@ async function CarregarLivros() {
             elemento.innerHTML = `
                 <h3>${livro.titulo}</h3>
                 <p><strong>Autor:</strong> ${livro.autor}</p>
-                <p><strong>Data:</strong> ${livro.data}</p>
-                <p><strong>Sinopse:</strong><br>${livro.sinopse}</p>
-                <hr>
+                <p><strong>Data:</strong> ${livro.ano_publicacao}</p>
+                <p><strong>Genero:</strong><br>${livro.genero}</p>
+                <p><strong>Sinopse:</strong><br>${livro.resumo}</p>
+             
             `;
             container.appendChild(elemento);
         });
     } catch (error) {
         console.error("Erro ao carregar livros:", error);
-        container.innerHTML = "<p>Erro ao carregar livros. Tente novamente.</p>";
+        container.innerHTML = "<p>  Tente novamente Erro ao carregar livros.</p>";
     }
 }
 
